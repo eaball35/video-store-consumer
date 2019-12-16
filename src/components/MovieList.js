@@ -5,17 +5,18 @@ import axios from 'axios';
 class MovieList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      movies = []
-    };
-  }
-
-  componentDidMount() {
   }
   
   render() {
-    return ('')
+    const movies = this.props.movies.map((movie, i) => {
+      return <p key={i}>{movie.title}</p>
+    });
+
+    return (
+      <section>
+        {movies}
+      </section>
+    )
   }
 }
 
