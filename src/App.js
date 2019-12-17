@@ -73,9 +73,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
-          <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
-          {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
-          <h2>{this.state.errors}</h2>
+        <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
+        {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
+        <h2>{this.state.errors}</h2>
       </section>
     );
   }

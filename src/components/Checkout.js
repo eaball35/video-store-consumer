@@ -21,7 +21,7 @@ class Checkout extends Component {
     }
 
     if (this.props.customer) {
-      customer = <Customer buttonText='remove' {...customer}/>
+      customer = <Customer buttonText='remove' {...this.props.customer}/>
     } else {
       customer = 'please select a customer'
     }
@@ -37,7 +37,6 @@ class Checkout extends Component {
     )
   }
 }
-
 
 Checkout.propTypes = {
   movies: PropTypes.object.isRequired,
