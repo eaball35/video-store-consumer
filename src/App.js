@@ -3,7 +3,7 @@ import './App.css';
 import Nav from './components/Nav';
 import Checkout from './components/Checkout';
 import axios from 'axios';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   constructor(props) {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 class Movie extends Component {
   constructor(props) {
@@ -10,9 +9,14 @@ class Movie extends Component {
     };
   }
 
-  
   render() {
-    return ('')
+    return (
+      <tr>
+        <td><img src={this.props.image_url} alt={this.props.title}/></td>
+        <td>{this.props.title}</td>
+        <td>{this.props.overview}</td>
+      </tr>
+    )
   }
 }
 
