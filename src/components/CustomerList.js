@@ -9,22 +9,13 @@ class CustomerList extends Component {
 
   render() {
     const customers = this.props.customers.map((customer, i) => {
-      return <Customer registered={customer.registered_at} name={customer.name} phone={customer.phone} streetAddress={customer.address} cityState={`${customer.city}, ${customer.state} ${customer.postal_code}`}/>
+      return <Customer name={customer.name} phone={customer.phone} key={i}/>
     });
 
     return (
-      <table className="table">
-        <thead className="thead-dark">
-          <th>Registered</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Address</th>
-          <th>City/State</th>
-        </thead>
-        <tbody>
-          {customers}
-        </tbody>
-    </table>
+      <section className="cards-container">
+        {customers}
+      </section>
     )
   }
 }
