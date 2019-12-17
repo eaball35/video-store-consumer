@@ -22,7 +22,7 @@ class MovieList extends Component {
 
 
 MovieList.propTypes = {
-  
+  movies: PropTypes.array.isRequired
 };
 
 export default MovieList;

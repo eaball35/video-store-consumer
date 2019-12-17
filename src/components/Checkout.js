@@ -12,13 +12,15 @@ class Checkout extends Component {
 
   
   render() {
-    return ('')
+    return ('Checkout')
   }
 }
 
 
 Checkout.propTypes = {
-  
+  movies: PropTypes.object.isRequired,
+  customers: PropTypes.object.isRequired,
+  onCheckout: PropTypes.func.isRequired
 };
 
 export default Checkout;

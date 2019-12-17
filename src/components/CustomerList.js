@@ -21,7 +21,7 @@ class CustomerList extends Component {
 }
 
 CustomerList.propTypes = {
- 
+  customers: PropTypes.array.isRequired
 };
 
 export default CustomerList;

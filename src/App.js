@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CustomerList from './components/CustomerList';
-import MovieList from './components/MovieList';
+import Nav from './components/Nav';
 import Checkout from './components/Checkout';
 import axios from 'axios';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      customers: [],
+      movies: [],
       errors: '',
       currentCustomer: '',
-      currentMovies: '',
-      customers: [],
-      movies: []
+      currentMovie: '',
     };
   }
 
   componentDidMount() {
-    this.listCustomers();
-    this.listMovies();
+    this.fetchCustomers();
+    this.fetchMovies();
   }
   
-  listMovies() {
+  fetchMovies() {
     axios.get('http://localhost:3000/movies')
       .then((response) => {
         this.setState({
@@ -39,7 +38,7 @@ class App extends Component {
   }
 
 
-  listCustomers() {
+  fetchCustomers() {
     axios.get('http://localhost:3000/customers')
       .then((response) => {
         this.setState({
@@ -59,16 +58,14 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <section className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
           <h2>{this.state.errors}</h2>
-          <CustomerList customers={this.state.customers} />
-          <MovieList movies={this.state.movies}/>
-          <Checkout customer={this.state.currentCustomer} movie={this.state.currentMovies} onCheckout={this.onCheckout} />
-      </div>
+          <Nav movies={this.state.movies} customers={this.state.customers} />
+          <Checkout movie={this.state.currentMovie} customer={this.state.currentCustomer} onCheckout={this.onCheckout} />
+      </section>
     );
   }
 }
