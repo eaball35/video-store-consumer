@@ -12,10 +12,11 @@ class Checkout extends Component {
   }
  
   render() {
+    const { movie, customer } = this.props;
     return (
       <section className='checkout'>
-        <Movie buttonText='remove' {...this.props.movie}/>
-        <Customer buttonText='remove' {...this.props.customer}/>
+        {movie && <Movie buttonText='remove' {...movie}/>}
+        {customer && <Customer buttonText='remove' {...customer}/>}
       </section>
     )
   }
