@@ -1,20 +1,21 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template: / 3fr 1fr;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  grid-column-start: span 2
 }
 
-.App-title {
-  font-size: 1.5em;
+.checkout {
+  grid-row: auto / span 2;
 }
 
-.App-intro {
-  font-size: large;
+.navbar {
+  grid-column-start: span 2;
+}
+
+.list {
 }
 
 .card {
