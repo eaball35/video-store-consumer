@@ -10,20 +10,13 @@ class MovieList extends Component {
   
   render() {
     const movies = this.props.movies.map((movie, i) => {
-      return <Movie title={movie.title} overview={movie.overview} image_url={movie.image_url} />
+      return <Movie title={movie.title} image_url={movie.image_url} />
     });
 
     return (
-        <table className="table">
-          <thead className="thead-dark">
-            <th></th>
-            <th>Title</th>
-            <th>Overview</th>
-          </thead>
-          <tbody>
-            {movies}
-          </tbody>
-        </table>
+        <section className="cards-container" >
+          {movies}
+        </section>
     )
   }
 }
