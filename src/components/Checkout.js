@@ -12,11 +12,27 @@ class Checkout extends Component {
   }
  
   render() {
-    const { movie, customer } = this.props;
+    let movie, customer
+
+    if (this.props.movie) {
+      movie = <Movie buttonText='remove' {...this.props.movie}/>
+    } else {
+      movie = 'please select a movie'
+    }
+
+    if (this.props.customer) {
+      customer = <Customer buttonText='remove' {...customer}/>
+    } else {
+      customer = 'please select a customer'
+    }
+   
     return (
       <section className='checkout'>
-        {movie && <Movie buttonText='remove' {...movie}/>}
-        {customer && <Customer buttonText='remove' {...customer}/>}
+        <h3>Checkout</h3>
+        <h4>Movie</h4>
+        {movie}
+        <h4>Customer</h4>
+        {customer}
       </section>
     )
   }

@@ -67,13 +67,14 @@ class App extends Component {
   }
   
   render() {
+    const { movies, customers, currentCustomer, currentMovie } = this.state
     return (
       <section className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
-          <Nav onSelect={this.onSelect} movies={this.state.movies} customers={this.state.customers} />
-          <Checkout movie={this.state.currentMovie} customer={this.state.currentCustomer} onCheckout={this.onCheckout} />
+          <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
+          {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
           <h2>{this.state.errors}</h2>
       </section>
     );
