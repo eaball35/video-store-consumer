@@ -10,9 +10,9 @@ class Movie extends Component {
     return (
       <div className="card">
         <img src={this.props.image_url} className="card-img-top" alt={this.props.title}/>
-        <div class="card-body">
-          <h5 class="card-title">{this.props.title}</h5>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div className="card-body">
+          <h5 className="card-title">{this.props.title}</h5>
+          <a href="#" className="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     )

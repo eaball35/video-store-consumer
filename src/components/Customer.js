@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 class Customer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
   }
 
   formatDate(string) {
@@ -16,20 +13,20 @@ class Customer extends Component {
 
   render() {
     return (
-      <tr>
-        <td>{this.formatDate(this.props.registered)}</td>
-        <td>{this.props.name}</td>
-        <td>{this.props.phone}</td>
-        <td>{this.props.streetAddress}</td>
-        <td>{this.props.cityState}</td>
-      </tr>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{this.props.name}</h5>
+          <p className="card-text">{this.props.phone}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
     )
   }
 }
 
-
 Customer.propTypes = {
-  
+  name: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };
 
 export default Customer;
