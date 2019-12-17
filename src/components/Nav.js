@@ -9,7 +9,6 @@ import CustomerList from './CustomerList';
 import MovieList from './MovieList';
 import Home from './Home';
 import PropTypes from 'prop-types';
-import './Nav.css';
 
 
 const Nav = (props) => {
