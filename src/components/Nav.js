@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 const Nav = (props) => {
   return (
     <Router>
-      <nav className='navbar navbar-expand navbar-light bg-light'>
+      <nav className='navbar sticky-top navbar-expand navbar-light bg-light'>
         <ul className="navbar-nav">
           <li className='nav-item'>
             <Link to="/" className="nav-link">Home</Link>
