@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <section className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to our Page Wazzzzup</h1>  
+          <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
           <Nav movies={this.state.movies} customers={this.state.customers} />
           <Checkout movie={this.state.currentMovie} customer={this.state.currentCustomer} onCheckout={this.onCheckout} />
