@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import Movie from './Movie';
+import Customer from './Customer';
 
 class Checkout extends Component {
   constructor(props) {
@@ -9,10 +10,14 @@ class Checkout extends Component {
     this.state = {
     };
   }
-
-  
+ 
   render() {
-    return ('Checkout')
+    return (
+      <section className='checkout'>
+        <Movie buttonText='remove' {...this.props.movie}/>
+        <Customer buttonText='remove' {...this.props.customer}/>
+      </section>
+    )
   }
 }
 

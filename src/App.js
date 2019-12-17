@@ -37,7 +37,6 @@ class App extends Component {
       });
   }
 
-
   fetchCustomers() {
     axios.get('http://localhost:3000/customers')
       .then((response) => {
@@ -55,6 +54,17 @@ class App extends Component {
   onCheckout() {
 
   }
+
+  onSelect = (type, id) => {
+    if (type === 'movie') {
+      const currentMovie = this.state.movies.find(movie => movie.id === id)
+      this.setState({currentMovie})
+    }
+    else if (type === 'customer') {
+      const currentCustomer = this.state.customers.find(customer => customer.id === id)
+      this.setState({currentCustomer})
+    }
+  }
   
   render() {
     return (
@@ -62,7 +72,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
-          <Nav movies={this.state.movies} customers={this.state.customers} />
+          <Nav onSelect={this.onSelect} movies={this.state.movies} customers={this.state.customers} />
           <Checkout movie={this.state.currentMovie} customer={this.state.currentCustomer} onCheckout={this.onCheckout} />
           <h2>{this.state.errors}</h2>
       </section>

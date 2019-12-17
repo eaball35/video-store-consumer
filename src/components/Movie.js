@@ -12,7 +12,10 @@ class Movie extends Component {
         <img src={this.props.image_url} className="card-img-top" alt={this.props.title}/>
         <div className="card-body">
           <h5 className="card-title">{this.props.title}</h5>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
+          <a className="btn btn-primary"
+             onClick={this.props.onSelect}>
+             {this.props.buttonText}
+          </a>
         </div>
       </div>
     )
@@ -22,7 +25,9 @@ class Movie extends Component {
 
 Movie.propTypes = {
   title: PropTypes.string.isRequired,
-  image_url: PropTypes.string.isRequired
+  image_url: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Movie;

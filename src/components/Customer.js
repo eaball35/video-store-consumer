@@ -17,7 +17,10 @@ class Customer extends Component {
         <div className="card-body">
           <h5 className="card-title">{this.props.name}</h5>
           <p className="card-text">{this.props.phone}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a className="btn btn-primary"
+             onClick={this.props.onSelect}>
+             {this.props.buttonText}
+          </a>
         </div>
       </div>
     )
@@ -27,6 +30,8 @@ class Customer extends Component {
 Customer.propTypes = {
   name: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Customer;

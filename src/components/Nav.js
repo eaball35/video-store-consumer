@@ -30,10 +30,10 @@ const Nav = (props) => {
         
         <Switch>
           <Route path="/library">
-            <MovieList movies={props.movies}/>
+            <MovieList onSelect={props.onSelect} movies={props.movies}/>
           </Route>
           <Route path="/customers">
-            <CustomerList customers={props.customers} />
+            <CustomerList onSelect={props.onSelect} customers={props.customers} />
           </Route>
           <Route path="/">
             <Home />
