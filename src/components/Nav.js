@@ -9,21 +9,22 @@ import CustomerList from './CustomerList';
 import MovieList from './MovieList';
 import Home from './Home';
 import PropTypes from 'prop-types';
+import './Nav.css';
 
 
 const Nav = (props) => {
   return (
     <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+        <nav className='navbar navbar-expand navbar-light bg-light'>
+          <ul className="navbar-nav">
+            <li className='nav-item'>
+              <Link to="/" className="nav-link">Home</Link>
             </li>
-            <li>
-              <Link to="/library">Movie List</Link>
+            <li className='nav-item'>
+              <Link to="/library" className="nav-link">Movie List</Link>
             </li>
-            <li>
-              <Link to="/customers">Customers</Link>
+            <li className='nav-item'>
+              <Link to="/customers" className="nav-link">Customers</Link>
             </li>
           </ul>
         </nav>
