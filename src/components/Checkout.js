@@ -4,43 +4,61 @@ import Movie from './Movie';
 import Customer from './Customer';
 
 class Checkout extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-    };
-  }
- 
   render() {
     let movie, customer
 
     if (this.props.movie) {
       movie = <Movie buttonText='remove' {...this.props.movie}/>
     } else {
-      movie = 'please select a movie'
+      movie = <p>Please select a <strong>movie</strong> to checkout.</p>
     }
 
     if (this.props.customer) {
       customer = <Customer buttonText='remove' {...this.props.customer}/>
     } else {
-      customer = 'please select a customer'
+      customer = <p>Please select a <strong>customer</strong> to checkout.</p>
     }
-   
+  
+    const messages = () => {
+      if (this.props.messages) { 
+        if (this.props.messages.success) {
+          return <div class="alert alert-success" role="alert"> {this.props.messages.success} </div>
+        } else if (this.props.messages.error) {
+          return <div class="alert alert-danger" role="alert"> {this.props.messages.error} </div> 
+        }
+      }
+    }
+    
     return (
       <section className='checkout'>
-        <h3>Checkout</h3>
-        <h4>Movie</h4>
-        {movie}
-        <h4>Customer</h4>
-        {customer}
+        <h3>Rental Checkout</h3>
+        {messages()}
+        
+        <h4>Customer:</h4>
+        <section className='checkout-customer'>
+          {customer}
+        </section>
+        
+        <h4>Movie:</h4>
+        <section className='checkout-movie'>
+          {movie}
+        </section>
+        
+        <div className='checkout-btn'>
+          <button 
+              className="btn btn-primary"
+              onClick={this.props.onCheckout}>
+              Checkout
+          </button>
+        </div>
       </section>
     )
   }
 }
 
 Checkout.propTypes = {
-  movies: PropTypes.object.isRequired,
-  customers: PropTypes.object.isRequired,
+  movie: PropTypes.isRequired,
+  customer: PropTypes.isRequired,
   onCheckout: PropTypes.func.isRequired
 };
 

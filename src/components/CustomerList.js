@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import Customer from './Customer';
 
 class CustomerList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const customers = this.props.customers.map((customer, i) => {
@@ -14,7 +11,7 @@ class CustomerList extends Component {
                         buttonText='Select'
                         key={i}
                         onSelect={() => this.props.onSelect('customer', customer.id)}/>
-             )
+            )
     });
 
     return (

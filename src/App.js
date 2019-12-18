@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       customers: [],
       movies: [],
-      errors: '',
+      messages: {},
       currentCustomer: '',
       currentMovie: '',
     };
@@ -46,13 +46,29 @@ class App extends Component {
       })
       .catch((error) => {
         this.setState({
-          errors: error
+          messages: {error}
         });
       });
   }
 
-  onCheckout() {
-
+  onCheckout = () => {
+    const params = {customer_id: this.state.currentCustomer.id,
+                    due_date: '20-1-1' }
+    
+    axios.post(`http://localhost:3000/rentals/${this.state.currentMovie.title}/check-out`, params)
+      .then((response) => {
+        this.setState({
+          messages: {success: `Successfully checked out ${this.state.currentMovie.title}`},
+          currentCustomer: '',
+          currentMovie: '',
+          
+        })
+      })
+      .catch((error) => {
+        this.setState({
+          messages: {error: 'Please select both a customer and a movie to checkout.'},
+        });
+      });
   }
 
   onSelect = (type, id) => {
@@ -67,15 +83,14 @@ class App extends Component {
   }
   
   render() {
-    const { movies, customers, currentCustomer, currentMovie } = this.state
+    const { movies, customers, currentCustomer, currentMovie, messages } = this.state
     return (
       <section className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
         <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
-        {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
-        <h2>{this.state.errors}</h2>
+        <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} messages={messages} />
       </section>
     );
   }
