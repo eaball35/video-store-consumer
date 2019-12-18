@@ -91,6 +91,11 @@ class App extends Component {
   }
 
   onAddToLib = (movie) => {
+    if (this.state.movies.find(({external_id}) => external_id === movie.external_id)) {
+      this.setState({messages: {error: `${movie.title} is already in the library`}})
+      this.resetMessages()
+      return
+    }
     axios.post('http://localhost:3000/movies', {movie})
       .then(response => {
         const movies = [...this.state.movies]
@@ -111,7 +116,7 @@ class App extends Component {
   }
 
   resetMessages = () => {
-    setTimeout(() => this.setState({messages: {}}), 5000)
+    setTimeout(() => this.setState({messages: {}}), 4000)
   }
   
   render() {
