@@ -10,7 +10,7 @@ class CustomerList extends Component {
                         phone={customer.phone}
                         buttonText='Select'
                         key={i}
-                        onSelect={() => this.props.onSelect('customer', customer.id)}/>
+                        onSelect={() => this.props.onSelect(customer)}/>
             )
     });
 

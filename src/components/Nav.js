@@ -40,7 +40,7 @@ const Nav = (props) => {
           <CustomerList className='list' onSelect={props.onSelect} customers={props.customers} />
         </Route>
         <Route path="/search">
-          <Search />
+          <Search onAddToLib={props.onAddToLib}/>
         </Route>
         <Route path="/">
           <Home />

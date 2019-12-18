@@ -22,9 +22,9 @@ class Checkout extends Component {
     const messages = () => {
       if (this.props.messages) { 
         if (this.props.messages.success) {
-          return <div class="alert alert-success" role="alert"> {this.props.messages.success} </div>
+          return <div className="alert alert-success" role="alert"> {this.props.messages.success} </div>
         } else if (this.props.messages.error) {
-          return <div class="alert alert-danger" role="alert"> {this.props.messages.error} </div> 
+          return <div className="alert alert-danger" role="alert"> {this.props.messages.error} </div> 
         }
       }
     }

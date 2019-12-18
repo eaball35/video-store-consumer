@@ -71,15 +71,21 @@ class App extends Component {
       });
   }
 
-  onSelect = (type, id) => {
-    if (type === 'movie') {
-      const currentMovie = this.state.movies.find(movie => movie.id === id)
-      this.setState({currentMovie})
+  onSelect = (selected) => {
+    if (selected.title) {
+      this.setState({currentMovie: selected})
     }
-    else if (type === 'customer') {
-      const currentCustomer = this.state.customers.find(customer => customer.id === id)
-      this.setState({currentCustomer})
+    else if (selected.name) {
+      this.setState({currentCustomer: selected})
     }
+  }
+
+  onAddToLib = (movie) => {
+    axios.post('http://localhost:3000/movies', {movie})
+      .then(response => {
+        console.log(response, movie)
+        this.setState({movies: this.state.movies.push(movie)})
+      }).catch(console.log)
   }
   
   render() {
@@ -89,7 +95,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
-        <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
+        <Nav onSelect={this.onSelect} onAddToLib={this.onAddToLib} movies={movies} customers={customers} />
         <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} messages={messages} />
       </section>
     );

@@ -7,7 +7,7 @@ const MovieList = (props) => {
     return (<Movie title={movie.title}
               image_url={movie.image_url}
               buttonText='Select'
-              onSelect={() => props.onSelect('movie', movie.id)}/>)
+              onSelect={() => props.onSelect(movie)}/>)
   });
 
   return (
