@@ -61,13 +61,14 @@ class App extends Component {
           messages: {success: `Successfully checked out ${this.state.currentMovie.title}`},
           currentCustomer: '',
           currentMovie: '',
-          
         })
+        this.resetMessages()
       })
       .catch((error) => {
         this.setState({
           messages: {error: 'Please select both a customer and a movie to checkout.'},
         });
+        this.resetMessages()
       });
   }
 
@@ -85,7 +86,8 @@ class App extends Component {
       .then(response => {
         const movies = [...this.state.movies]
         movies.push(movie)
-        this.setState({movies, messages: { success: `${movie.title} added to library`}})
+        this.setState({movies, messages: { success: `${movie.title} added to library` }})
+        this.resetMessages()
       }).catch(console.log)
   }
   
@@ -97,6 +99,10 @@ class App extends Component {
         return <div className="alert alert-danger" role="alert"> {this.state.messages.error} </div> 
       }
     }
+  }
+
+  resetMessages = () => {
+    setTimeout(() => this.setState({messages: {}}), 5000)
   }
   
   render() {
