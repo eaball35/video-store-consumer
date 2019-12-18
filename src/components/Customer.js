@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Customer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  formatDate(string) {
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(string).toLocaleDateString([],options);
-}
 
   render() {
     return (

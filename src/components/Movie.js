@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Movie extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
@@ -21,7 +18,6 @@ class Movie extends Component {
     )
   }
 }
-
 
 Movie.propTypes = {
   title: PropTypes.string.isRequired,

@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       customers: [],
       movies: [],
-      message: {},
+      messages: {},
       currentCustomer: '',
       currentMovie: '',
     };

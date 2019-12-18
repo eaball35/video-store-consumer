@@ -4,10 +4,6 @@ import Movie from './Movie';
 import Customer from './Customer';
 
 class Checkout extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let movie, customer
 
@@ -61,8 +57,8 @@ class Checkout extends Component {
 }
 
 Checkout.propTypes = {
-  movies: PropTypes.object.isRequired,
-  customers: PropTypes.object.isRequired,
+  movie: PropTypes.isRequired,
+  customer: PropTypes.isRequired,
   onCheckout: PropTypes.func.isRequired
 };
 
