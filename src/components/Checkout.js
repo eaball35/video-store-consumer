@@ -8,13 +8,13 @@ class Checkout extends Component {
     let movie, customer
 
     if (this.props.movie) {
-      movie = <Movie buttonText='remove' {...this.props.movie}/>
+      movie = <Movie buttonText='remove' onSelect={() => this.props.onRemove(this.props.movie)} {...this.props.movie}/>
     } else {
       movie = <p>Please select a <strong>movie</strong> to checkout.</p>
     }
 
     if (this.props.customer) {
-      customer = <Customer buttonText='remove' {...this.props.customer}/>
+      customer = <Customer buttonText='remove' onSelect={() => this.props.onRemove(this.props.customer)} {...this.props.customer}/>
     } else {
       customer = <p>Please select a <strong>customer</strong> to checkout.</p>
     }

@@ -81,6 +81,15 @@ class App extends Component {
     }
   }
 
+  onRemove = (toRemove) => {
+    if (toRemove.title) {
+      this.setState({currentMovie: ''})
+    }
+    else if (toRemove.name) {
+      this.setState({currentCustomer: ''})
+    }
+  }
+
   onAddToLib = (movie) => {
     axios.post('http://localhost:3000/movies', {movie})
       .then(response => {
@@ -118,7 +127,10 @@ class App extends Component {
           movies={movies}
           customers={customers}
           messages={messages}/>
-        <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />
+        <Checkout movie={currentMovie}
+          customer={currentCustomer}
+          onCheckout={this.onCheckout}
+          onRemove={this.onRemove}/>
       </section>
     );
   }
