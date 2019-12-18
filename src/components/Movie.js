@@ -12,7 +12,7 @@ class Movie extends Component {
         <img src={this.props.image_url} className="card-img-top" alt={this.props.title}/>
         <div className="card-body">
           <h5 className="card-title">{this.props.title}</h5>
-          <button className="btn btn-dark"
+          <button className="btn btn-secondary"
             onClick={this.props.onSelect}>
             {this.props.buttonText}
           </button>
