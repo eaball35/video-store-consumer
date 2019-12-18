@@ -1,28 +1,59 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template: / 3fr 1fr;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  grid-column-start: span 2
 }
 
-.App-title {
-  font-size: 1.5em;
+.checkout {
+  grid-row: auto / span 2;
+  background-color: darkgray;
 }
 
-.App-intro {
-  font-size: large;
+.checkout h3 {
+  text-align: center;
+  margin-bottom: 10%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.checkout h4 {
+  margin: 5%;
+  margin-top: 0;
+}
+
+.checkout-customer .card, .checkout-customer p {
+  max-width: 90%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.checkout-movie .card, .checkout-movie p  {
+  max-width: 60%;
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.checkout-movie, .checkout-customer, .checkout-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  grid-column-start: span 2;
 }
 
 .card {
   width: 18rem;
+  margin: 1.5%;
+  text-align: center;
 }
 
 .cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 }
