@@ -63,7 +63,6 @@ class App extends Component {
           currentMovie: '',
           
         })
-        console.log('success')
       })
       .catch((error) => {
         this.setState({
@@ -93,7 +92,6 @@ class App extends Component {
         </header>
         <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
         {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
-        {/* <h2>{this.state.messages}</h2> */}
       </section>
     );
   }

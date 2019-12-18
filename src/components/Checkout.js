@@ -17,26 +17,36 @@ class Checkout extends Component {
     if (this.props.movie) {
       movie = <Movie buttonText='remove' {...this.props.movie}/>
     } else {
-      movie = 'please select a movie'
+      movie = <p>Please select a <strong>movie</strong> to checkout.</p>
     }
 
     if (this.props.customer) {
       customer = <Customer buttonText='remove' {...this.props.customer}/>
     } else {
-      customer = 'please select a customer'
+      customer = <p>Please select a <strong>customer</strong> to checkout.</p>
     }
-   
+  
     return (
       <section className='checkout'>
-        <h3>Checkout</h3>
-        <h4>Movie</h4>
-        {movie}
-        <h4>Customer</h4>
-        {customer}
-        <a className="btn btn-primary"
-            onClick={this.props.onCheckout}>
-            Checkout
-        </a>
+        <h3>Rental Checkout</h3>
+        
+        <h4>Customer:</h4>
+        <section className='checkout-customer'>
+          {customer}
+        </section>
+        
+        <h4>Movie:</h4>
+        <section className='checkout-movie'>
+          {movie}
+        </section>
+        
+        <div className='checkout-btn'>
+          <button 
+              className="btn btn-primary"
+              onClick={this.props.onCheckout}>
+              Checkout
+          </button>
+        </div>
       </section>
     )
   }
