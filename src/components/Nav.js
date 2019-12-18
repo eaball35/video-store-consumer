@@ -5,11 +5,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 import CustomerList from './CustomerList';
 import MovieList from './MovieList';
 import Home from './Home';
-import PropTypes from 'prop-types';
-
+import Search from './Search';
 
 const Nav = (props) => {
   return (
@@ -25,6 +26,9 @@ const Nav = (props) => {
           <li className='nav-item'>
             <Link to="/customers" className="nav-link">Customers</Link>
           </li>
+          <li className='nav-item'>
+            <Link to="/search" className="nav-link">Search</Link>
+          </li>
         </ul>
       </nav>
       
@@ -34,6 +38,9 @@ const Nav = (props) => {
         </Route>
         <Route path="/customers">
           <CustomerList className='list' onSelect={props.onSelect} customers={props.customers} />
+        </Route>
+        <Route path="/search">
+          <Search />
         </Route>
         <Route path="/">
           <Home />
