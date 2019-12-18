@@ -83,9 +83,20 @@ class App extends Component {
   onAddToLib = (movie) => {
     axios.post('http://localhost:3000/movies', {movie})
       .then(response => {
-        console.log(response, movie)
-        this.setState({movies: this.state.movies.push(movie)})
+        const movies = [...this.state.movies]
+        movies.push(movie)
+        this.setState({movies, messages: { success: `${movie.title} added to library`}})
       }).catch(console.log)
+  }
+  
+  messages = () => {
+    if (this.state.messages) { 
+      if (this.state.messages.success) {
+        return <div className="alert alert-success" role="alert"> {this.state.messages.success} </div>
+      } else if (this.state.messages.error) {
+        return <div className="alert alert-danger" role="alert"> {this.state.messages.error} </div> 
+      }
+    }
   }
   
   render() {
@@ -94,9 +105,14 @@ class App extends Component {
       <section className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
+          {this.messages()}
         </header>
-        <Nav onSelect={this.onSelect} onAddToLib={this.onAddToLib} movies={movies} customers={customers} />
-        <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} messages={messages} />
+        <Nav onSelect={this.onSelect}
+          onAddToLib={this.onAddToLib}
+          movies={movies}
+          customers={customers}
+          messages={messages}/>
+        <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />
       </section>
     );
   }

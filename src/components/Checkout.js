@@ -18,22 +18,10 @@ class Checkout extends Component {
     } else {
       customer = <p>Please select a <strong>customer</strong> to checkout.</p>
     }
-  
-    const messages = () => {
-      if (this.props.messages) { 
-        if (this.props.messages.success) {
-          return <div className="alert alert-success" role="alert"> {this.props.messages.success} </div>
-        } else if (this.props.messages.error) {
-          return <div className="alert alert-danger" role="alert"> {this.props.messages.error} </div> 
-        }
-      }
-    }
     
     return (
       <section className='checkout'>
         <h3>Rental Checkout</h3>
-        {messages()}
-        
         <h4>Customer:</h4>
         <section className='checkout-customer'>
           {customer}
