@@ -6,7 +6,7 @@ const MovieList = (props) => {
   const movies = props.movies.map((movie, i) => {
     return (<Movie title={movie.title}
               image_url={movie.image_url}
-              buttonText='Select'
+              buttonText={props.buttonText}
               onSelect={() => props.onSelect(movie)}/>)
   });
 

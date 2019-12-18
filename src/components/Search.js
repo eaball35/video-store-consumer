@@ -35,7 +35,7 @@ class Search extends Component {
           <input type='text' placeholder='search' value={this.state.query} onChange={this.onChange}/>
           <input type='submit' value='Search' className='btn btn-primary'/>
         </form>
-        <MovieList movies={this.state.movies} onSelect={this.props.onAddToLib} />
+        <MovieList movies={this.state.movies} onSelect={this.props.onAddToLib} buttonText='Add to Library'/>
       </section>
     )
   }
