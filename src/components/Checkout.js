@@ -10,7 +10,7 @@ class Checkout extends Component {
     this.state = {
     };
   }
- 
+
   render() {
     let movie, customer
 
@@ -33,6 +33,10 @@ class Checkout extends Component {
         {movie}
         <h4>Customer</h4>
         {customer}
+        <a className="btn btn-primary"
+            onClick={this.props.onCheckout}>
+            Checkout
+        </a>
       </section>
     )
   }

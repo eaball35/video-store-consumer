@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       customers: [],
       movies: [],
-      errors: '',
+      message: {},
       currentCustomer: '',
       currentMovie: '',
     };
@@ -46,12 +46,30 @@ class App extends Component {
       })
       .catch((error) => {
         this.setState({
-          errors: error
+          messages: {error}
         });
       });
   }
 
-  onCheckout() {
+  onCheckout = () => {
+    const params = {customer_id: this.state.currentCustomer.id,
+                    due_date: '20-1-1' }
+    
+    axios.post(`http://localhost:3000/rentals/${this.state.currentMovie.title}/check-out`, params)
+      .then((response) => {
+        this.setState({
+          messages: {success: `Successfully checked out ${this.state.currentMovie.title}`},
+          currentCustomer: '',
+          currentMovie: '',
+          
+        })
+        console.log('success')
+      })
+      .catch((error) => {
+        this.setState({
+          messages: {error}
+        });
+      });
 
   }
 
@@ -75,7 +93,7 @@ class App extends Component {
         </header>
         <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
         {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
-        <h2>{this.state.errors}</h2>
+        {/* <h2>{this.state.messages}</h2> */}
       </section>
     );
   }
