@@ -6,9 +6,6 @@ import Customer from './Customer';
 class Checkout extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
   }
 
   render() {
@@ -26,9 +23,20 @@ class Checkout extends Component {
       customer = <p>Please select a <strong>customer</strong> to checkout.</p>
     }
   
+    const messages = () => {
+      if (this.props.messages) { 
+        if (this.props.messages.success) {
+          return <div class="alert alert-success" role="alert"> {this.props.messages.success} </div>
+        } else if (this.props.messages.error) {
+          return <div class="alert alert-danger" role="alert"> {this.props.messages.error} </div> 
+        }
+      }
+    }
+    
     return (
       <section className='checkout'>
         <h3>Rental Checkout</h3>
+        {messages()}
         
         <h4>Customer:</h4>
         <section className='checkout-customer'>

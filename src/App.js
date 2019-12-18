@@ -66,10 +66,9 @@ class App extends Component {
       })
       .catch((error) => {
         this.setState({
-          messages: {error}
+          messages: {error: 'Please select both a customer and a movie to checkout.'},
         });
       });
-
   }
 
   onSelect = (type, id) => {
@@ -84,14 +83,14 @@ class App extends Component {
   }
   
   render() {
-    const { movies, customers, currentCustomer, currentMovie } = this.state
+    const { movies, customers, currentCustomer, currentMovie, messages } = this.state
     return (
       <section className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
         </header>
         <Nav onSelect={this.onSelect} movies={movies} customers={customers} />
-        {(currentMovie || currentCustomer) && <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} />}
+        <Checkout movie={currentMovie} customer={currentCustomer} onCheckout={this.onCheckout} messages={messages} />
       </section>
     );
   }
