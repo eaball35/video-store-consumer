@@ -11,7 +11,7 @@ const MovieList = (props) => {
   });
 
   return (
-      <section className="cards-container" >
+      <section className="moviepage cards-container" >
         {movies}
       </section>
   )

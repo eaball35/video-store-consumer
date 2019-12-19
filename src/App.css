@@ -74,7 +74,7 @@
   justify-content: center;
 }
 
-.homepage, .searchpage {
+.homepage, .searchpage, .moviepage, .customerpage {
   min-width: 70vw;
 }
 

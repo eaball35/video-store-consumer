@@ -58,7 +58,7 @@ class App extends Component {
     axios.post(`http://localhost:3000/rentals/${this.state.currentMovie.title}/check-out`, params)
       .then((response) => {
         this.setState({
-          messages: {success: `Successfully checked out ${this.state.currentMovie.title}`},
+          messages: {success: `${this.state.currentCustomer.name} successfully checked out ${this.state.currentMovie.title}!`},
           currentCustomer: '',
           currentMovie: '',
         })
