@@ -8,20 +8,36 @@ class Checkout extends Component {
     let movie, customer
 
     if (this.props.movie) {
-      movie = <Movie buttonText='remove' onSelect={() => this.props.onRemove(this.props.movie)} {...this.props.movie}/>
+      movie = <Movie 
+                buttonText='remove' 
+                onSelect={() => this.props.onRemove(this.props.movie)} 
+                {...this.props.movie}
+              />
     } else {
-      movie = <p>Please select a <strong>movie</strong> to checkout.</p>
+      movie = <p> Please select a <strong>movie</strong> to checkout.</p>
     }
 
     if (this.props.customer) {
-      customer = <Customer buttonText='remove' onSelect={() => this.props.onRemove(this.props.customer)} {...this.props.customer}/>
+      customer = <Customer 
+                    buttonText='remove' 
+                    onSelect={() => this.props.onRemove(this.props.customer)}
+                    {...this.props.customer}
+                  />
     } else {
-      customer = <p>Please select a <strong>customer</strong> to checkout.</p>
+      customer = <p> Please select a <strong>customer</strong> to checkout.</p>
     }
     
     return (
       <section className='checkout'>
-        <h3>Rental Checkout</h3>
+        <h2>Rental Checkout</h2>
+        <div className='checkout-btn'>
+          <button 
+              className="btn btn-dark"
+              onClick={this.props.onCheckout}>
+              Checkout
+          </button>
+        </div>
+        
         <h4>Customer:</h4>
         <section className='checkout-customer'>
           {customer}
@@ -31,22 +47,12 @@ class Checkout extends Component {
         <section className='checkout-movie'>
           {movie}
         </section>
-        
-        <div className='checkout-btn'>
-          <button 
-              className="btn btn-primary"
-              onClick={this.props.onCheckout}>
-              Checkout
-          </button>
-        </div>
       </section>
     )
   }
 }
 
 Checkout.propTypes = {
-  movie: PropTypes.isRequired,
-  customer: PropTypes.isRequired,
   onCheckout: PropTypes.func.isRequired
 };
 

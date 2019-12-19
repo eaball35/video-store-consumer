@@ -5,11 +5,18 @@ class Movie extends Component {
 
   render() {
     return (
-      <div className="card">
-        <img src={this.props.image_url} className="card-img-top" alt={this.props.title}/>
+      <div className="card" onClick={this.props.onSelect}>
+        <img 
+          src={this.props.image_url} 
+          className="card-img-top" 
+          alt={this.props.title} 
+        />
         <div className="card-body">
-          <h5 className="card-title">{this.props.title}</h5>
-          <button className="btn btn-secondary"
+          <p className="card-title">
+            <strong>{this.props.title}</strong>
+          </p>
+          <button 
+            className="btn btn-secondary"
             onClick={this.props.onSelect}>
             {this.props.buttonText}
           </button>

@@ -1,20 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 .App {
   display: grid;
-  grid-template: / 3fr 1fr;
+  grid-template: 3fr 1fr;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(63, 80, 114);
 }
 
 .App-header {
-  grid-column-start: span 2
+  grid-column-start: span 2;
+  text-align: center;
+  padding: 1%;
+  background-color: white;
 }
 
 .checkout {
   grid-row: auto / span 2;
-  background-color: darkgray;
+  background-color: rgb(201, 201, 201);
+  min-height: 100vh;
+  min-width: 30vw;
 }
 
-.checkout h3 {
+.checkout h2 {
   text-align: center;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   margin-top: 5%;
   text-align: center;
 }
@@ -24,15 +33,9 @@
   margin-top: 0;
 }
 
-.checkout-customer .card, .checkout-customer p {
+.checkout-customer .card, .checkout-customer p, .checkout-movie .card, .checkout-movie p  {
   max-width: 90%;
-  margin-bottom: 10%;
-  text-align: center;
-}
-
-.checkout-movie .card, .checkout-movie p  {
-  max-width: 60%;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
   text-align: center;
 }
 
@@ -41,19 +44,73 @@
   justify-content: center;
 }
 
+.checkout-btn {
+  margin-bottom: 2em;
+}
+
 .navbar {
   grid-column-start: span 2;
+  font-size: 1.5rem;
+}
+
+.navbar li {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .card {
-  width: 18rem;
+  width: 14rem;
+  padding: 1em;
+  padding-bottom: 0em;
   margin: 1.5%;
   text-align: center;
 }
 
 .cards-container {
+  padding-top: .5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.homepage, .searchpage {
+  min-width: 70vw;
+}
+
+.homepage  {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage header {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  color: white;
+  max-width: 50%;
+}
+
+.searchpage {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  text-align: center;
+}
+
+.search-bar {
+  background: #fff;
+  padding: 1em;
+  width: 95%;
+  border-radius: 10em;
+  transition: box-shadow 300ms ease;
+  border-radius: 6px;
+  border: 1px solid rgba(137, 149, 199, .2);
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, .075) !important;
+  margin-right: 10px;
+  margin-bottom: 2rem;
+}
+
+.searchpage h2 {
+  color: white;
+  padding: 1rem;
 }

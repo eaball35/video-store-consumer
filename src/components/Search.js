@@ -30,12 +30,27 @@ class Search extends Component {
 
   render() {
     return (
-      <section>
+      <section className='searchpage'>
+        <h2>Search and Add Movies...</h2>
         <form onSubmit={this.onSubmit}>
-          <input type='text' placeholder='search' value={this.state.query} onChange={this.onChange}/>
-          <input type='submit' value='Search' className='btn btn-primary'/>
+          <input 
+            type='text' 
+            placeholder='Search...' 
+            value={this.state.query} 
+            onChange={this.onChange} 
+            className='search-bar'
+          />
+          <input 
+            type='submit' 
+            value='Search' 
+            className='btn btn-primary'
+          />
         </form>
-        <MovieList movies={this.state.movies} onSelect={this.props.onAddToLib} buttonText='Add to Library'/>
+        <MovieList 
+          movies={this.state.movies} 
+          onSelect={this.props.onAddToLib} 
+          buttonText='Add to Library'
+        />
       </section>
     )
   }

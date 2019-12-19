@@ -5,7 +5,7 @@ class Customer extends Component {
 
   render() {
     return (
-      <div className="card">
+      <div className="card" onClick={this.props.onSelect}>
         <div className="card-body">
           <h5 className="card-title">{this.props.name}</h5>
           <p className="card-text">{this.props.phone}</p>

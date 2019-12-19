@@ -15,13 +15,13 @@ import Search from './Search';
 const Nav = (props) => {
   return (
     <Router>
-      <nav className='navbar sticky-top navbar-expand navbar-light bg-light'>
-        <ul className="navbar-nav">
+      <nav className='navbar sticky-top navbar-expand navbar-dark bg-dark'>
+        <ul className="navbar-nav mx-auto">
           <li className='nav-item'>
             <Link to="/" className="nav-link">Home</Link>
           </li>
           <li className='nav-item'>
-            <Link to="/library" className="nav-link">Movie List</Link>
+            <Link to="/library" className="nav-link">Library</Link>
           </li>
           <li className='nav-item'>
             <Link to="/customers" className="nav-link">Customers</Link>
@@ -34,7 +34,7 @@ const Nav = (props) => {
       
       <Switch>
         <Route path="/library">
-          <MovieList className='list' onSelect={props.onSelect} movies={props.movies}/>
+          <MovieList className='list' onSelect={props.onSelect} movies={props.movies} buttonText='Select'/>
         </Route>
         <Route path="/customers">
           <CustomerList className='list' onSelect={props.onSelect} customers={props.customers} />
