@@ -15,9 +15,7 @@ class Movie extends Component {
           <p className="card-title">
             <strong>{this.props.title}</strong>
           </p>
-          <button 
-            className="btn btn-secondary"
-            onClick={this.props.onSelect}>
+          <button className="btn btn-secondary">
             {this.props.buttonText}
           </button>
         </div>

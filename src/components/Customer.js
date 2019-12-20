@@ -9,8 +9,7 @@ class Customer extends Component {
         <div className="card-body">
           <h5 className="card-title">{this.props.name}</h5>
           <p className="card-text">{this.props.phone}</p>
-          <button className="btn btn-secondary"
-            onClick={this.props.onSelect}>
+          <button className="btn btn-secondary">
             {this.props.buttonText}
           </button>
         </div>
