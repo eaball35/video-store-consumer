@@ -58,7 +58,7 @@ class App extends Component {
     axios.post(`http://localhost:3000/rentals/${this.state.currentMovie.title}/check-out`, params)
       .then((response) => {
         this.setState({
-          messages: {success: `Successfully checked out ${this.state.currentMovie.title}`},
+          messages: {success: `${this.state.currentCustomer.name} successfully checked out ${this.state.currentMovie.title}!`},
           currentCustomer: '',
           currentMovie: '',
         })
@@ -92,16 +92,18 @@ class App extends Component {
 
   onAddToLib = (movie) => {
     if (this.state.movies.find(({external_id}) => external_id === movie.external_id)) {
-      this.setState({messages: {error: `${movie.title} is already in the library`}})
-      this.resetMessages()
-      return
+      this.setState({
+        messages: {error: `${movie.title} is already in the library`}
+      })
+      this.resetMessages();
+      return;
     }
     axios.post('http://localhost:3000/movies', {movie})
       .then(response => {
         const movies = [...this.state.movies]
         movies.push(movie)
         this.setState({movies, messages: { success: `${movie.title} added to library` }})
-        this.resetMessages()
+        this.resetMessages();
       }).catch(console.log)
   }
   
@@ -124,7 +126,7 @@ class App extends Component {
     return (
       <section className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to our Page Wazzzzup</h1>
+          <img src='https://live.staticflickr.com/65535/49240969981_a84cd27b76_m.jpg'alt='Movie Rentalz'/>
           {this.messages()}
         </header>
         <Nav onSelect={this.onSelect}

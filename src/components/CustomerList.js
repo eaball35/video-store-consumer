@@ -15,7 +15,7 @@ class CustomerList extends Component {
     });
 
     return (
-      <section className="cards-container">
+      <section className="customerpage cards-container">
         {customers}
       </section>
     )
