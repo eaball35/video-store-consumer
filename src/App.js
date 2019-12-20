@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import Nav from './components/Nav';
 import Checkout from './components/Checkout';
+import MovieList from './components/MovieList';
+import CustomerList from './components/CustomerList';
+import Search from './components/Search';
+import Home from './components/Home';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -125,19 +135,36 @@ class App extends Component {
     const { movies, customers, currentCustomer, currentMovie, messages } = this.state
     return (
       <section className="App">
+        <Router>
         <header className="App-header">
           <img src='https://live.staticflickr.com/65535/49240969981_a84cd27b76_m.jpg'alt='Movie Rentalz'/>
           {this.messages()}
         </header>
-        <Nav onSelect={this.onSelect}
-          onAddToLib={this.onAddToLib}
-          movies={movies}
-          customers={customers}
-          messages={messages}/>
-        <Checkout movie={currentMovie}
-          customer={currentCustomer}
-          onCheckout={this.onCheckout}
-          onRemove={this.onRemove}/>
+          <Nav onSelect={this.onSelect}
+            onAddToLib={this.onAddToLib}
+            movies={movies}
+            customers={customers}
+            messages={messages}/>
+          <Checkout movie={currentMovie}
+            customer={currentCustomer}
+            onCheckout={this.onCheckout}
+            onRemove={this.onRemove}/>
+        
+        <Switch>
+          <Route path="/library">
+            <MovieList className='list' onSelect={this.onSelect} movies={this.state.movies} buttonText='Select'/>
+          </Route>
+          <Route path="/customers">
+            <CustomerList className='list' onSelect={this.onSelect} customers={this.state.customers} />
+          </Route>
+          <Route path="/search">
+            <Search onAddToLib={this.onAddToLib}/>
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
       </section>
     );
   }

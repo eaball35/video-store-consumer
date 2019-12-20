@@ -14,7 +14,6 @@ import Search from './Search';
 
 const Nav = (props) => {
   return (
-    <Router>
       <nav className='navbar sticky-top navbar-expand navbar-dark bg-dark'>
         <ul className="navbar-nav mx-auto">
           <li className='nav-item'>
@@ -31,22 +30,6 @@ const Nav = (props) => {
           </li>
         </ul>
       </nav>
-      
-      <Switch>
-        <Route path="/library">
-          <MovieList className='list' onSelect={props.onSelect} movies={props.movies} buttonText='Select'/>
-        </Route>
-        <Route path="/customers">
-          <CustomerList className='list' onSelect={props.onSelect} customers={props.customers} />
-        </Route>
-        <Route path="/search">
-          <Search onAddToLib={props.onAddToLib}/>
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
   );
 }
 

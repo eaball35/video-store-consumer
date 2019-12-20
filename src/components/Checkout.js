@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Movie from './Movie';
 import Customer from './Customer';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class Checkout extends Component {
   render() {
@@ -14,7 +20,7 @@ class Checkout extends Component {
                 {...this.props.movie}
               />
     } else {
-      movie = <p> Please select a <strong>movie</strong> to checkout.</p>
+      movie = <p> Please select a <strong> <Link to={`/library`}> movie </Link></strong> to checkout. </p>
     }
 
     if (this.props.customer) {
@@ -24,7 +30,7 @@ class Checkout extends Component {
                     {...this.props.customer}
                   />
     } else {
-      customer = <p> Please select a <strong>customer</strong> to checkout.</p>
+      customer = <p> Please select a <strong><Link to={`/customers`}> customers </Link></strong> to checkout.</p>
     }
     
     return (
